@@ -19,5 +19,7 @@ COPY --from=base /app/kunle_app .
 
 COPY --from=base /app/static ./static
 
-CMD [ "./kunle-app" ]
+EXPOSE 8080
+
+CMD [ "./kunle_app" ]
 
