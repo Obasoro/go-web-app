@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches:
+     - main
+    paths-ignore:
+     - 'README.md'
+     - 'heml/**'
+
+jobs:
+   build:
+     run-on: ubuntu-latest
+
+     steps:
+     - name: Checkout Repository
+       uses: actions/checkout@v4
+
+     - name: set-up Go 1.22
+       uses: actions/setup-go@v2
+       with:
+          go-version 1.22
+
+     - name: Build
+       run: go build -0 go-web
+
+     - name: Test
+       run: go_test/..
+
